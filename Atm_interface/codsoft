@@ -2,20 +2,21 @@ import java.util.*;
 import java.util.Scanner;
 public class AtmMachine{
     public static void main(String[]args){
-      int balance=100000,withdraw,deposit,amount;
+      int balance=100000,withdraw,deposit;
       Scanner sc=new Scanner(System.in);
       while(true){
           System.out.println("Welcome");
-          System.out.println("1 . Withdraw\n2 . Deposit\n");
-          System.out.println("3 . Balance\n4 . Exit\n\nYour choice : ");
-          num=sc.nextInt();
-          switch(amount){
+          System.out.println("1 . Withdraw\n2 . Deposit");
+          System.out.println("3 . Balance\n4 . Exit\n");
+          System.out.println("Your choice : ");
+          int choice=sc.nextInt();
+          switch(choice){
               case 1:
                    System.out.println("Enter the amount to withdraw");
                    withdraw=sc.nextInt();
                    if(balance>withdraw){
-                       balance+=withdraw;
-                       System.out.println("Balance Amount is "+balance);
+                       balance-=withdraw;
+                       System.out.println("Your Balance Amount after withrawing is "+balance);
                        System.out.println("Please collect the money");
                    }
                    else{
@@ -27,15 +28,18 @@ public class AtmMachine{
                    System.out.println("Enter the amount to deposit");
                    deposit=sc.nextInt();
                    balance+=deposit;
-                   System.out.println("Balance amount is "+balance);
+                   System.out.println("Your Balance amount after depositing is "+balance);
                    System.out.println("Successfully Deposited");
                    System.out.println("  ");
+                   break;
               case 3:
-                   System.out.println("Balance is ");
+                   System.out.println("Your current account balance is "+balance);
                    System.out.println("  ");
+                   break;
               case 4:
                    System.exit(0);
                    System.out.println("  ");
           }
       }
     }
+}
